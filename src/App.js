@@ -8,12 +8,20 @@ import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import ProductDetails from "./components/ProductDetails";
 
+// Images
+import savon1 from "./images/savon canneberge et citron.webp";
+import savon2 from "./images/savon cafe et romarin.webp";
+import savon3 from "./images/savon chanvre et the vert.webp";
+import shampoo1 from "./images/shampooing chaga et argile.webp";
+import shampoo2 from "./images/shampooing solide calendule.webp";
+import shampoo3 from "./images/shampooing solide ortie et prele.webp";
+
 const App = () => {
   const products = [
     {
       name: "SAVON CANNEBERGE & CITRON",
       url: "savon-canneberge-citron",
-      source: "",
+      source: savon1,
       price: 0,
       description: "",
       category: "soaps",
@@ -21,7 +29,7 @@ const App = () => {
     {
       name: "SAVON CAFÉ & ROMARIN",
       url: "savon-cafe-romarin",
-      source: "",
+      source: savon2,
       price: 0,
       description: "",
       category: "soaps",
@@ -29,7 +37,7 @@ const App = () => {
     {
       name: "SAVON CHANVRE & THÉ VERT",
       url: "savon-chanvre-the-vert",
-      source: "",
+      source: savon3,
       price: 0,
       description: "",
       category: "soaps",
@@ -37,7 +45,7 @@ const App = () => {
     {
       name: "SHAMPOING ORTIE & PRÊLE",
       url: "shampoing-ortie-prele",
-      source: "",
+      source: shampoo1,
       price: 0,
       description: "",
       category: "shampoos",
@@ -45,7 +53,7 @@ const App = () => {
     {
       name: "SHAMPOING CALENDULE",
       url: "shampoing-calendule",
-      source: "",
+      source: shampoo2,
       price: 0,
       description: "",
       category: "shampoos",
@@ -53,7 +61,7 @@ const App = () => {
     {
       name: "SHAMPOING CHAGA & ARGILE",
       url: "shampoing-chage-argile",
-      source: "",
+      source: shampoo3,
       price: 0,
       description: "",
       category: "shampoos",

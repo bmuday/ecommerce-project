@@ -2,13 +2,11 @@ import ProductCard from "../components/ProductCard";
 
 const Shop = ({ products }) => {
   return (
-    <ul>
+    <div>
       {products.map((product, index) => (
-        <li>
-          <ProductCard key={index} product={product} />
-        </li>
+        <ProductCard key={index} product={product} />
       ))}
-    </ul>
+    </div>
   );
 };
 
