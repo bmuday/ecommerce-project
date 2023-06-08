@@ -19,7 +19,7 @@ const Count = () => {
   };
 
   const reset = () => {
-    const newCount = 0;
+    const newCount = 1;
     setCounter(newCount);
   };
 

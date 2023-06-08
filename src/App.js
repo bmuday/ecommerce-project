@@ -15,6 +15,7 @@ import savon3 from "./images/savon chanvre et the vert.webp";
 import shampoo1 from "./images/shampooing chaga et argile.webp";
 import shampoo2 from "./images/shampooing solide calendule.webp";
 import shampoo3 from "./images/shampooing solide ortie et prele.webp";
+import { useState } from "react";
 
 const App = () => {
   const products = [
@@ -67,6 +68,7 @@ const App = () => {
       category: "shampoos",
     },
   ];
+  const [totalQuantity, setTotalQuantity] = useState(0);
   return (
     <div>
       <Router>
