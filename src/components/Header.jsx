@@ -1,8 +1,15 @@
 import TopBar from "./TopBar";
 import NavLink from "./NavLink";
 import { FaShoppingCart } from "react-icons/fa";
+import CartNotification from "./CartNotification";
 
-const Header = ({ totalQuantity }) => {
+const Header = ({
+  totalQuantity,
+  changeDisplayCart,
+  displayedCart,
+  productsInCart,
+  removeProduct,
+}) => {
   const links = [
     { text: "Home", url: "/" },
     { text: "Shop", url: "/shop" },
@@ -27,8 +34,17 @@ const Header = ({ totalQuantity }) => {
           ))}
         </ul>
       </nav>
-      <FaShoppingCart />
-      <span>{totalQuantity}</span>
+      <button onClick={changeDisplayCart}>
+        <FaShoppingCart />
+        <span>{totalQuantity}</span>
+      </button>
+      {displayedCart && (
+        <CartNotification
+          changeDisplayCart={changeDisplayCart}
+          productsInCart={productsInCart}
+          removeProduct={removeProduct}
+        />
+      )}
     </div>
   );
 };

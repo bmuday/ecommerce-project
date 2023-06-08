@@ -1,7 +1,7 @@
 //import de useState
 import { useEffect, useState } from "react";
 
-const Count = ({ addQuantity }) => {
+const Count = ({ addProduct, productInfo }) => {
   //déclarer useState et mis à 0
   const [counter, setCounter] = useState(1);
   const [activeButton, setActiveButton] = useState(false);
@@ -41,7 +41,9 @@ const Count = ({ addQuantity }) => {
         <button onClick={countUp}>+</button>
       </div>
       <button onClick={reset}>Reset</button>
-      <button onClick={() => addQuantity(counter)}>Ajouter au panier</button>
+      <button onClick={() => addProduct(counter, productInfo)}>
+        Ajouter au panier
+      </button>
     </div>
   );
 };

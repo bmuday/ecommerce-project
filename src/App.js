@@ -1,9 +1,10 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import { useState } from "react";
 
 // Routing
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import ProductDetails from "./components/ProductDetails";
@@ -15,7 +16,6 @@ import savon3 from "./images/savon chanvre et the vert.webp";
 import shampoo1 from "./images/shampooing chaga et argile.webp";
 import shampoo2 from "./images/shampooing solide calendule.webp";
 import shampoo3 from "./images/shampooing solide ortie et prele.webp";
-import { useState } from "react";
 
 const App = () => {
   const products = [
@@ -69,31 +69,59 @@ const App = () => {
     },
   ];
   const [totalQuantity, setTotalQuantity] = useState(0);
+  const [productsInCart, setProductsInCart] = useState([]);
 
-  const addQuantity = (counter) => {
+  const addProduct = (counter, productInfo) => {
+    setProductsInCart([
+      ...productsInCart,
+      {
+        name: productInfo.name,
+        price: productInfo.price,
+        quantity: counter,
+        url: productInfo.url,
+        source: productInfo.source,
+      },
+    ]);
     setTotalQuantity(totalQuantity + counter);
   };
+
+  const removeProduct = (name) => {
+    const newProductsInCart = productsInCart.filter(
+      (product) => product.name !== name
+    );
+    setProductsInCart(newProductsInCart);
+  };
+
+  const [displayedCart, setDisplayedCart] = useState(false);
+  const changeDisplayCart = () => {
+    setDisplayedCart(!displayedCart);
+  };
+
   return (
     <div>
-      <Router>
-        <Header totalQuantity={totalQuantity} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="shop" element={<Shop products={products} />} />
-          <Route path="contact" element={<Contact />} />
-          {/* Nested Routes = Routes imbriquées */}
-          <Route path="product">
-            <Route
-              path=":url"
-              element={
-                <ProductDetails products={products} addQuantity={addQuantity} />
-              }
-            />
-          </Route>
-          {/* Fin de la route imbriquée */}
-        </Routes>
-        <Footer />
-      </Router>
+      <Header
+        totalQuantity={totalQuantity}
+        changeDisplayCart={changeDisplayCart}
+        displayedCart={displayedCart}
+        productsInCart={productsInCart}
+        removeProduct={removeProduct}
+      />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="shop" element={<Shop products={products} />} />
+        <Route path="contact" element={<Contact />} />
+        {/* Nested Routes = Routes imbriquées */}
+        <Route path="product">
+          <Route
+            path=":url"
+            element={
+              <ProductDetails products={products} addProduct={addProduct} />
+            }
+          />
+        </Route>
+        {/* Fin de la route imbriquée */}
+      </Routes>
+      <Footer />
     </div>
   );
 };
