@@ -1,12 +1,14 @@
 import TopBar from "./TopBar";
 import NavLink from "./NavLink";
+import { FaShoppingCart } from "react-icons/fa";
 
-const Header = () => {
+const Header = ({ totalQuantity }) => {
   const links = [
     { text: "Home", url: "/" },
     { text: "Shop", url: "/shop" },
     { text: "Contact", url: "/contact" },
   ];
+
   return (
     <div>
       <TopBar />
@@ -25,6 +27,8 @@ const Header = () => {
           ))}
         </ul>
       </nav>
+      <FaShoppingCart />
+      <span>{totalQuantity}</span>
     </div>
   );
 };

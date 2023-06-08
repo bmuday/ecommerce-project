@@ -69,10 +69,14 @@ const App = () => {
     },
   ];
   const [totalQuantity, setTotalQuantity] = useState(0);
+
+  const addQuantity = (counter) => {
+    setTotalQuantity(totalQuantity + counter);
+  };
   return (
     <div>
       <Router>
-        <Header />
+        <Header totalQuantity={totalQuantity} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="shop" element={<Shop products={products} />} />
@@ -81,7 +85,9 @@ const App = () => {
           <Route path="product">
             <Route
               path=":url"
-              element={<ProductDetails products={products} />}
+              element={
+                <ProductDetails products={products} addQuantity={addQuantity} />
+              }
             />
           </Route>
           {/* Fin de la route imbriquée */}

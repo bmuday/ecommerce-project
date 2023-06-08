@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import Count from "./Count";
 
-const ProductDetails = ({ products }) => {
+const ProductDetails = ({ products, addQuantity }) => {
   let { url } = useParams();
   const productInfo = products.filter((product) => product.url === url)[0];
   const { name, price, category } = productInfo;
@@ -10,7 +10,7 @@ const ProductDetails = ({ products }) => {
       <h2>{name}</h2>
       <p>${price}</p>
       <p>{category}</p>
-      <Count />
+      <Count addQuantity={addQuantity} />
     </div>
   );
 };
