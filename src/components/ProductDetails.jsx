@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import Count from "./Count";
 
 const ProductDetails = ({ products }) => {
   let { url } = useParams();
@@ -9,6 +10,7 @@ const ProductDetails = ({ products }) => {
       <h2>{name}</h2>
       <p>${price}</p>
       <p>{category}</p>
+      <Count />
     </div>
   );
 };
