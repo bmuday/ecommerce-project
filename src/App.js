@@ -72,16 +72,32 @@ const App = () => {
   const [productsInCart, setProductsInCart] = useState([]);
 
   const addProduct = (counter, productInfo) => {
-    setProductsInCart([
-      ...productsInCart,
-      {
-        name: productInfo.name,
-        price: productInfo.price,
-        quantity: counter,
-        url: productInfo.url,
-        source: productInfo.source,
-      },
-    ]);
+    // Verifier si le produit existe dans la liste des produits du panier
+    
+    // si le produit est déja dans la liste
+    const productAlreadyInCart = productsInCart.filter(
+      (product) => {
+        if(product.name === productInfo.name) {
+          product.quantity = product.quantity + counter
+        }
+        return true
+      }
+    );
+
+    // sinon, je peux rajouter les infos du produit
+    if (productAlreadyInCart.length === 0) {
+      setProductsInCart([
+        ...productsInCart,
+        {
+          name: productInfo.name,
+          price: productInfo.price,
+          quantity: counter,
+          url: productInfo.url,
+          source: productInfo.source,
+        },
+      ]);
+    }
+
     setTotalQuantity(totalQuantity + counter);
   };
 
