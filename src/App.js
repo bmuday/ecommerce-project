@@ -18,6 +18,7 @@ import shampoo2 from "./images/shampooing solide calendule.webp";
 import shampoo3 from "./images/shampooing solide ortie et prele.webp";
 
 const App = () => {
+  // fetch products
   const products = [
     {
       name: "SAVON CANNEBERGE & CITRON",
@@ -73,6 +74,13 @@ const App = () => {
 
   const addProduct = (counter, productInfo) => {
     // Verifier si le produit existe dans la liste des produits du panier
+
+    productsInCart.map(product => {
+      if(product.name === productInfo.name){
+        product.quantity = product.quantity + counter
+      }
+      return product
+    })
     
     // si le produit est déja dans la liste
     const productAlreadyInCart = productsInCart.filter(

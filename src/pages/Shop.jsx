@@ -5,7 +5,9 @@ const Shop = ({ products, displayedFilter, changeDisplayFilter }) => {
   return (
     <div>
       <button onClick={changeDisplayFilter}>Display filter</button>
-      {displayedFilter && <Filter changeDisplayFilter={changeDisplayFilter} />}
+      {displayedFilter && (
+        <Filter changeDisplayFilter={changeDisplayFilter} products={products} />
+      )}
       {products.map((product, index) => (
         <ProductCard key={index} product={product} />
       ))}

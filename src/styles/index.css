@@ -8,3 +8,7 @@
 #count button {
   margin: 5px;
 }
+
+#filter {
+  display: flex;
+}
