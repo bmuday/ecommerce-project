@@ -5,8 +5,8 @@ import CartNotification from "./CartNotification";
 
 const Header = ({
   totalQuantity,
-  changeDisplayCart,
   displayedCart,
+  changeDisplayCart,
   productsInCart,
   removeProduct,
 }) => {
@@ -28,8 +28,8 @@ const Header = ({
       <nav>
         <ul>
           {links.map((link, index) => (
-            <li>
-              <NavLink key={index} link={link} />
+            <li key={index}>
+              <NavLink link={link} />
             </li>
           ))}
         </ul>

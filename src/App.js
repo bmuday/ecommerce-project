@@ -113,18 +113,24 @@ const App = () => {
     setDisplayedCart(!displayedCart);
   };
 
+  const [displayedFilter, setDisplayedFilter] = useState(false);
+  const changeDisplayFilter = () => {
+    setDisplayedFilter(!displayedFilter);
+  };
+
   return (
     <div>
       <Header
         totalQuantity={totalQuantity}
-        changeDisplayCart={changeDisplayCart}
         displayedCart={displayedCart}
+        changeDisplayCart={changeDisplayCart}
         productsInCart={productsInCart}
         removeProduct={removeProduct}
       />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="shop" element={<Shop products={products} />} />
+        <Route path="shop" element={<Shop products={products} displayedFilter={displayedFilter}
+        changeDisplayFilter={changeDisplayFilter} />} />
         <Route path="contact" element={<Contact />} />
         {/* Nested Routes = Routes imbriquées */}
         <Route path="product">

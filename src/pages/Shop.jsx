@@ -1,8 +1,11 @@
 import ProductCard from "../components/ProductCard";
+import Filter from "../components/Filter";
 
-const Shop = ({ products }) => {
+const Shop = ({ products, displayedFilter, changeDisplayFilter }) => {
   return (
     <div>
+      <button onClick={changeDisplayFilter}>Display filter</button>
+      {displayedFilter && <Filter changeDisplayFilter={changeDisplayFilter} />}
       {products.map((product, index) => (
         <ProductCard key={index} product={product} />
       ))}
