@@ -10,5 +10,29 @@
 }
 
 #filter {
+  width: 400px;
+}
+
+#priceFilter {
   display: flex;
+  flex-direction: column;
+  
+}
+
+#inputsFilter {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+#rangesFilter {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+#categoriesFilter {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
 }
